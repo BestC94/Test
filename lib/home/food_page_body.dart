@@ -65,8 +65,8 @@ class _FoodPageBody extends State<FoodPageBody> {
             child: Carousel(
               images: [
                 ExactAssetImage("assets/image/01.png"),
-                ExactAssetImage("assets/image/01.png"),
-                ExactAssetImage("assets/image/01.png")
+                ExactAssetImage("assets/image/02.jpg"),
+                //ExactAssetImage("assets/image/01.png")
               ],
               dotSize: 4.0,
               dotSpacing: 15.0,

@@ -66,7 +66,7 @@ flutter:
   #  assets:
   #   - assets/image/1.png
   assets:
-    - assets/image/01.png
+    - assets/image/.
   # fonts:
   #   -family: Roboto
   #   fonts:
