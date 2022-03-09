@@ -25,7 +25,7 @@ class FoodDetail extends StatelessWidget {
                   ),
                   onPressed: () => {Navigator.pop(context)},
                   icon: Icon(
-                    Icons.navigate_before,
+                    Icons.navigate_next,
                     color: Colors.white,
                   ),
                   label: Text(
