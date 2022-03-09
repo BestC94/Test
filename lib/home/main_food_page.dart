@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:testproject/widgets/big_text.dart';
 import 'package:testproject/widgets/small_text.dart';
+import 'food_detail.dart';
 import 'food_page_body.dart';
 
 class MainFoodPage extends StatefulWidget {
@@ -14,15 +15,14 @@ class MainFoodPage extends StatefulWidget {
 class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
-    // print("current height: " + MediaQuery.of(context).size.height.toString());
     return Scaffold(
       body: Column(
         children: [
           //Showing the header
           Container(
             child: Container(
-              margin: EdgeInsets.only(top: 60, bottom: 15),
-              padding: EdgeInsets.only(left: 20, right: 20),
+              margin: const EdgeInsets.only(top: 60, bottom: 15),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -36,23 +36,33 @@ class _MainFoodPageState extends State<MainFoodPage> {
                               text: "Rice.",
                               color: Colors.black54,
                             ),
-                            Icon(Icons.arrow_drop_down_rounded)
+                            const Icon(Icons.arrow_drop_down_rounded),
                           ],
                         )
-                        // SmallText(
-                        //   text: "Rice.",
-                        //   color: Colors.black54,
-                        // )
                       ]),
-                  Container(
-                    width: 45,
-                    height: 45,
-                    child: Icon(Icons.search, color: Colors.white),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.blue,
+                  TextButton.icon(
+                    style: TextButton.styleFrom(
+                      // textStyle: TextStyle(color: Colors.white),
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24.0),
+                      ),
                     ),
-                  )
+                    onPressed: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FoodDetail()),
+                      )
+                    },
+                    icon: Icon(
+                      Icons.navigate_next,
+                      color: Colors.white,
+                    ),
+                    label: Text(
+                      '',
+                    ),
+                  ),
                 ],
               ),
             ),

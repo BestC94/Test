@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -40,42 +39,25 @@ class _FoodPageBody extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Container(
-        //   height: Dimensions.pageView,
-        //   child: PageView.builder(
-        //     itemCount: 5,
-        //     itemBuilder: (context, position) {
-        //       return _buildPageItem(position);
-        //     },
-        //   ),
-        // ),
-        // new DotsIndicator(
-        //   dotsCount: 5,
-        //   position: _currPagrValue,
-        //   decorator: DotsDecorator(
-        //     size: const Size.square(9.0),
-        //     activeSize: const Size(18.0, 9.0),
-        //     activeShape: RoundedRectangleBorder(
-        //         borderRadius: BorderRadius.circular(5.0)),
-        //   ),
-        // ),
         SizedBox(
             height: 200.0,
             width: 350.0,
             child: Carousel(
               images: [
-                ExactAssetImage("assets/image/01.png"),
+                ExactAssetImage("assets/image/01.jpg"),
                 ExactAssetImage("assets/image/02.jpg"),
-                //ExactAssetImage("assets/image/01.png")
+                ExactAssetImage("assets/image/03.jpg"),
+                ExactAssetImage("assets/image/04.jpg"),
+                ExactAssetImage("assets/image/05.jpg")
               ],
               dotSize: 4.0,
               dotSpacing: 15.0,
               dotColor: Colors.lightGreenAccent,
               indicatorBgPadding: 5.0,
-              dotBgColor: Colors.purple.withOpacity(0.5),
+              // dotBgColor: Colors.purple.withOpacity(0.5),
               borderRadius: true,
-              autoplay: false,
-              autoplayDuration: Duration(seconds: 1),
+              autoplay: true,
+              autoplayDuration: Duration(seconds: 3),
             )),
         SizedBox(
           height: Dimensions.height30,
@@ -85,7 +67,7 @@ class _FoodPageBody extends State<FoodPageBody> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                BigText(text: "Popular1"),
+                BigText(text: "Popular", color: Colors.green),
                 SizedBox(
                   width: Dimensions.width10,
                 ),
@@ -111,106 +93,64 @@ class _FoodPageBody extends State<FoodPageBody> {
                 child: Column(children: <Widget>[
                   Card(
                       child: ListTile(
-                    title: Text("List Item 1"),
-                  )),
-                  Card(
-                    child: ListTile(
-                      title: Text("List Item 2"),
+                    title: Text("ผัดพริกเเกง"),
+                    subtitle: Text('50 บาท'),
+                    trailing: Icon(
+                      Icons.add_circle,
+                      color: Colors.blue,
                     ),
-                  ),
-                  Card(
-                      child: ListTile(
-                    title: Text("List Item 3"),
+                    onLongPress: () {},
                   )),
                   Card(
                       child: ListTile(
-                    title: Text("List Item 4"),
+                    title: Text("ต้มยำกุ้ง"),
+                    subtitle: Text('60 บาท'),
+                    trailing: Icon(Icons.add_circle, color: Colors.blue),
+                    onLongPress: () {},
                   )),
                   Card(
                       child: ListTile(
-                    title: Text("List Item 5"),
+                    title: Text("เเกงข่าไก่"),
+                    subtitle: Text('45 บาท'),
+                    trailing: Icon(Icons.add_circle, color: Colors.blue),
+                    onLongPress: () {},
                   )),
                   Card(
                       child: ListTile(
-                    title: Text("List Item 6"),
+                    title: Text("ไก่ย่าง"),
+                    subtitle: Text('50 บาท'),
+                    trailing: Icon(Icons.add_circle, color: Colors.blue),
+                    onLongPress: () {},
                   )),
                   Card(
                       child: ListTile(
-                    title: Text("List Item 7"),
+                    title: Text("ผัดไทย"),
+                    subtitle: Text('35 บาท'),
+                    trailing: Icon(Icons.add_circle, color: Colors.blue),
+                    onLongPress: () {},
                   )),
-                  // Container(
-                  //   height: 100,
-                  //   child: Text("01"),
-                  // ),
-                  // Container(
-                  //   height: 100,
-                  //   child: Text("02"),
-                  // ),
-                  // Container(
-                  //   height: 100,
-                  //   child: Text("03"),
-                  // ),
-                  // Container(
-                  //   height: 100,
-                  //   child: Text("04"),
-                  // ),
-                  // Container(
-                  //   height: 100,
-                  //   child: Text("05"),
-                  // ),
-                  // Container(
-                  //   height: 100,
-                  //   child: Text("06"),
-                  // ),
-                ]))
-            // istView(
-            //   children: [
-            // Card(
-            //     child: ListTile(
-            //   title: Text("List Item 1"),
-            // )),
-            // Card(
-            //   child: ListTile(
-            //     title: Text("List Item 2"),
-            //   ),
-            // ),
-            // Card(
-            //     child: ListTile(
-            //   title: Text("List Item 3"),
-            // )),
-            // Card(
-            //     child: ListTile(
-            //   title: Text("List Item 4"),
-            // )),
-            // Card(
-            //     child: ListTile(
-            //   title: Text("List Item 5"),
-            // )),
-            // Card(
-            //     child: ListTile(
-            //   title: Text("List Item 6"),
-            // )),
-            // Card(
-            //     child: ListTile(
-            //   title: Text("List Item 7"),
-            // )),
-            //   ],
-            //   shrinkWrap: true,
-            //   scrollDirection: Axis.vertical,
-
-            ) // ))
+                  Card(
+                      child: ListTile(
+                    title: Text("เเพนงไก่"),
+                    subtitle: Text('45 บาท'),
+                    trailing: Icon(Icons.add_circle, color: Colors.blue),
+                    onLongPress: () {},
+                  )),
+                  Card(
+                      child: ListTile(
+                    title: Text("เเกงไก่"),
+                    subtitle: Text('40 บาท'),
+                    trailing: Icon(Icons.add_circle, color: Colors.blue),
+                    onLongPress: () {},
+                  )),
+                ]))) // ))
       ],
     );
   }
 
   Widget _buildPageItem(int index) {
     Matrix4 matrix = new Matrix4.identity();
-    // if (index == _currPagrValue.floor()) {
-    //   var currScale = 1 - (_currPagrValue - index) * (1 - _scaleFactor);
-    //   var currTrans = _height * (1 - currScale) / 2;
-    //   matrix = Matrix4.diagonal3Values(1, currScale, 1)
-    //     ..setTranslationRaw(0, currTrans, 0);
-    // }
+
     if (index == _currPagrValue.floor() - 1) {
       var currScale = 1 - (_currPagrValue - index) * (1 - _scaleFactor);
       var currTrans = _height * (1 - currScale) / 2;
