@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testproject/widgets/big_text.dart';
 
 class FoodDetail extends StatelessWidget {
   const FoodDetail({Key? key}) : super(key: key);
@@ -15,6 +16,11 @@ class FoodDetail extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                Column(
+                    // children: [Text("Bangladesh"), Text("City")],
+                    children: [
+                      BigText(text: "รายการ", color: Colors.green),
+                    ]),
                 TextButton.icon(
                   style: TextButton.styleFrom(
                     // textStyle: TextStyle(color: Colors.white),

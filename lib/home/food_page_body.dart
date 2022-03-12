@@ -93,7 +93,7 @@ class _FoodPageBody extends State<FoodPageBody> {
                 child: Column(children: <Widget>[
                   Card(
                       child: ListTile(
-                    title: Text("ผัดพริกเเกง"),
+                    title: Text("ผัดพริกเเกง (Fried Chili.)"),
                     subtitle: Text('50 บาท'),
                     trailing: Icon(
                       Icons.add_circle,
@@ -103,14 +103,14 @@ class _FoodPageBody extends State<FoodPageBody> {
                   )),
                   Card(
                       child: ListTile(
-                    title: Text("ต้มยำกุ้ง"),
+                    title: Text("ต้มยำกุ้ง ( Tom Yum Kung.)"),
                     subtitle: Text('60 บาท'),
                     trailing: Icon(Icons.add_circle, color: Colors.blue),
                     onLongPress: () {},
                   )),
                   Card(
                       child: ListTile(
-                    title: Text("เเกงข่าไก่"),
+                    title: Text("เเกงข่าไก่,ต้มข่าไก่ (Tom Kha Gai)"),
                     subtitle: Text('45 บาท'),
                     trailing: Icon(Icons.add_circle, color: Colors.blue),
                     onLongPress: () {},

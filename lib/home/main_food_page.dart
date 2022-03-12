@@ -13,6 +13,7 @@ class MainFoodPage extends StatefulWidget {
 }
 
 class _MainFoodPageState extends State<MainFoodPage> {
+  // final databaseRef = FirebaseDatabase.instance.reference();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +37,6 @@ class _MainFoodPageState extends State<MainFoodPage> {
                               text: "Rice.",
                               color: Colors.black54,
                             ),
-                            const Icon(Icons.arrow_drop_down_rounded),
                           ],
                         )
                       ]),
@@ -76,4 +76,8 @@ class _MainFoodPageState extends State<MainFoodPage> {
       ),
     );
   }
+}
+
+class FirebaseDatabase {
+  static var instance;
 }
