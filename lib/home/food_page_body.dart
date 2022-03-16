@@ -1,13 +1,15 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:testproject/home/dimensions.dart';
+import 'package:carousel_pro/carousel_pro.dart';
+import 'package:testproject/db/notes_database.dart';
+import 'package:testproject/model/food.dart';
 import 'package:testproject/widgets/big_text.dart';
 import 'package:testproject/widgets/small_text.dart';
-import 'package:carousel_pro/carousel_pro.dart';
 
 class FoodPageBody extends StatefulWidget {
-  const FoodPageBody({Key? key}) : super(key: key);
+  final Food? food;
+  const FoodPageBody({Key? key, this.food}) : super(key: key);
 
   @override
   _FoodPageBody createState() => _FoodPageBody();
@@ -15,19 +17,24 @@ class FoodPageBody extends StatefulWidget {
 
 class _FoodPageBody extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.85);
-  var _currPagrValue = 0.0;
-  double _scaleFactor = 0.8;
-  double _height = Dimensions.pageViewContainer;
+  var foodList = [
+    {"id": 1, "name": "ผัดพริกเเกง (Fried Chili.)", "price": 50},
+    {"id": 2, "name": "ต้มยำกุ้ง ( Tom Yum Kung.)", "price": 60},
+    {"id": 3, "name": "เเกงข่าไก่,ต้มข่าไก่ (Tom Kha Gai)", "price": 45},
+    {"id": 4, "name": "ไก่ย่าง", "price": 50},
+    {"id": 5, "name": "ผัดไทย", "price": 45},
+    {"id": 6, "name": "เเพนงไก่", "price": 35},
+    {"id": 7, "name": "เเกงไก่", "price": 40},
+  ];
+
+  late int price;
+  late String name;
 
   @override
   void initState() {
     super.initState();
-    pageController.addListener(() {
-      setState(() {
-        _currPagrValue = pageController.page!;
-        // print("Current valur is " + _currPagrValue.toString());
-      });
-    });
+    price = widget.food?.price ?? 0;
+    name = widget.food?.name ?? '';
   }
 
   @override
@@ -35,48 +42,61 @@ class _FoodPageBody extends State<FoodPageBody> {
     pageController.dispose();
   }
 
+  Future addNote() async {
+    final food = Food(
+      name: name,
+      price: price,
+    );
+
+    await NotesDatabase.instance.create(food);
+  }
+
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return Column(
       children: [
         SizedBox(
             height: 200.0,
             width: 350.0,
             child: Carousel(
+              // ignore: prefer_const_literals_to_create_immutables
               images: [
                 ExactAssetImage("assets/image/01.jpg"),
                 ExactAssetImage("assets/image/02.jpg"),
                 ExactAssetImage("assets/image/03.jpg"),
-                ExactAssetImage("assets/image/04.jpg"),
-                ExactAssetImage("assets/image/05.jpg")
+                ExactAssetImage("assets/image/03.jpg"),
+                ExactAssetImage("assets/image/02.jpg")
               ],
               dotSize: 4.0,
               dotSpacing: 15.0,
               dotColor: Colors.lightGreenAccent,
               indicatorBgPadding: 5.0,
-              // dotBgColor: Colors.purple.withOpacity(0.5),
               borderRadius: true,
               autoplay: true,
               autoplayDuration: Duration(seconds: 3),
             )),
+        // ignore: prefer_const_constructors
         SizedBox(
-          height: Dimensions.height30,
+          height: 20,
         ),
         Container(
-            margin: EdgeInsets.only(left: Dimensions.width30),
+            margin: EdgeInsets.only(left: 20),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 BigText(text: "Popular", color: Colors.green),
+                // ignore: prefer_const_constructors
                 SizedBox(
-                  width: Dimensions.width10,
+                  width: 20,
                 ),
                 Container(
                   margin: const EdgeInsets.only(bottom: 3),
                   child: BigText(text: ".", color: Colors.black26),
                 ),
+                // ignore: prefer_const_constructors
                 SizedBox(
-                  width: Dimensions.width10,
+                  width: 20,
                 ),
                 Container(
                   margin: const EdgeInsets.only(bottom: 2),
@@ -86,6 +106,7 @@ class _FoodPageBody extends State<FoodPageBody> {
                 )
               ],
             )),
+
         Container(
             height: 400,
             child: SingleChildScrollView(
@@ -93,101 +114,139 @@ class _FoodPageBody extends State<FoodPageBody> {
                 child: Column(children: <Widget>[
                   Card(
                       child: ListTile(
-                    title: Text("ผัดพริกเเกง (Fried Chili.)"),
-                    subtitle: Text('50 บาท'),
+                    title: Text(foodList[0]['name'].toString()),
+                    subtitle: Text(foodList[0]['price'].toString() + " บาท"),
+                    // ignore: prefer_const_constructors
                     trailing: Icon(
                       Icons.add_circle,
                       color: Colors.blue,
                     ),
-                    onLongPress: () {},
+                    onTap: () {
+                      setState(() {
+                        // ignore: unnecessary_this
+                        this.name = foodList[0]['name'].toString();
+                        // ignore: unnecessary_this
+                        this.price = int.parse(foodList[0]['price'].toString());
+                        addNote();
+                      });
+                    },
                   )),
                   Card(
                       child: ListTile(
-                    title: Text("ต้มยำกุ้ง ( Tom Yum Kung.)"),
-                    subtitle: Text('60 บาท'),
-                    trailing: Icon(Icons.add_circle, color: Colors.blue),
-                    onLongPress: () {},
+                    title: Text(foodList[1]['name'].toString()),
+                    subtitle: Text(foodList[1]['price'].toString() + " บาท"),
+                    // ignore: prefer_const_constructors
+                    trailing: Icon(
+                      Icons.add_circle,
+                      color: Colors.blue,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        // ignore: unnecessary_this
+                        this.name = foodList[1]['name'].toString();
+                        // ignore: unnecessary_this
+                        this.price = int.parse(foodList[1]['price'].toString());
+                        addNote();
+                      });
+                    },
                   )),
                   Card(
                       child: ListTile(
-                    title: Text("เเกงข่าไก่,ต้มข่าไก่ (Tom Kha Gai)"),
-                    subtitle: Text('45 บาท'),
-                    trailing: Icon(Icons.add_circle, color: Colors.blue),
-                    onLongPress: () {},
+                    title: Text(foodList[2]['name'].toString()),
+                    subtitle: Text(foodList[2]['price'].toString() + " บาท"),
+                    // ignore: prefer_const_constructors
+                    trailing: Icon(
+                      Icons.add_circle,
+                      color: Colors.blue,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        // ignore: unnecessary_this
+                        this.name = foodList[2]['name'].toString();
+                        // ignore: unnecessary_this
+                        this.price = int.parse(foodList[2]['price'].toString());
+                        addNote();
+                      });
+                    },
                   )),
                   Card(
                       child: ListTile(
-                    title: Text("ไก่ย่าง"),
-                    subtitle: Text('50 บาท'),
-                    trailing: Icon(Icons.add_circle, color: Colors.blue),
-                    onLongPress: () {},
+                    title: Text(foodList[3]['name'].toString()),
+                    subtitle: Text(foodList[3]['price'].toString() + " บาท"),
+                    // ignore: prefer_const_constructors
+                    trailing: Icon(
+                      Icons.add_circle,
+                      color: Colors.blue,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        // ignore: unnecessary_this
+                        this.name = foodList[3]['name'].toString();
+                        // ignore: unnecessary_this
+                        this.price = int.parse(foodList[3]['price'].toString());
+                        addNote();
+                      });
+                    },
                   )),
                   Card(
                       child: ListTile(
-                    title: Text("ผัดไทย"),
-                    subtitle: Text('35 บาท'),
-                    trailing: Icon(Icons.add_circle, color: Colors.blue),
-                    onLongPress: () {},
+                    title: Text(foodList[4]['name'].toString()),
+                    subtitle: Text(foodList[4]['price'].toString() + " บาท"),
+                    // ignore: prefer_const_constructors
+                    trailing: Icon(
+                      Icons.add_circle,
+                      color: Colors.blue,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        // ignore: unnecessary_this
+                        this.name = foodList[4]['name'].toString();
+                        // ignore: unnecessary_this
+                        this.price = int.parse(foodList[4]['price'].toString());
+                        addNote();
+                      });
+                    },
                   )),
                   Card(
                       child: ListTile(
-                    title: Text("เเพนงไก่"),
-                    subtitle: Text('45 บาท'),
-                    trailing: Icon(Icons.add_circle, color: Colors.blue),
-                    onLongPress: () {},
+                    title: Text(foodList[5]['name'].toString()),
+                    subtitle: Text(foodList[5]['price'].toString() + " บาท"),
+                    // ignore: prefer_const_constructors
+                    trailing: Icon(
+                      Icons.add_circle,
+                      color: Colors.blue,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        // ignore: unnecessary_this
+                        this.name = foodList[5]['name'].toString();
+                        // ignore: unnecessary_this
+                        this.price = int.parse(foodList[5]['price'].toString());
+                        addNote();
+                      });
+                    },
                   )),
                   Card(
                       child: ListTile(
-                    title: Text("เเกงไก่"),
-                    subtitle: Text('40 บาท'),
-                    trailing: Icon(Icons.add_circle, color: Colors.blue),
-                    onLongPress: () {},
+                    title: Text(foodList[6]['name'].toString()),
+                    subtitle: Text(foodList[6]['price'].toString() + " บาท"),
+                    // ignore: prefer_const_constructors
+                    trailing: Icon(
+                      Icons.add_circle,
+                      color: Colors.blue,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        // ignore: unnecessary_this
+                        this.name = foodList[6]['name'].toString();
+                        // ignore: unnecessary_this
+                        this.price = int.parse(foodList[6]['price'].toString());
+                        addNote();
+                      });
+                    },
                   )),
                 ]))) // ))
       ],
     );
-  }
-
-  Widget _buildPageItem(int index) {
-    Matrix4 matrix = new Matrix4.identity();
-
-    if (index == _currPagrValue.floor() - 1) {
-      var currScale = 1 - (_currPagrValue - index) * (1 - _scaleFactor);
-      var currTrans = _height * (1 - currScale) / 2;
-      matrix = Matrix4.diagonal3Values(1, currScale, 1);
-      matrix = Matrix4.diagonal3Values(1, currScale, 1)
-        ..setTranslationRaw(0, currTrans, 0);
-    } else if (index == _currPagrValue.floor() + 1) {
-      var currScale =
-          _scaleFactor + (_currPagrValue - index + 1) * (1 - _scaleFactor);
-      var currTrans = _height * (1 - currScale) / 2;
-      matrix = Matrix4.diagonal3Values(1, currScale, 1);
-      matrix = Matrix4.diagonal3Values(1, currScale, 1)
-        ..setTranslationRaw(0, currTrans, 0);
-    } else if (index == _currPagrValue.floor() - 1) {
-      var currScale = 1 - (_currPagrValue - index) * (1 - _scaleFactor);
-      var currTrans = _height * (1 - currScale) / 2;
-      matrix = Matrix4.diagonal3Values(1, currScale, 1);
-      matrix = Matrix4.diagonal3Values(1, currScale, 1)
-        ..setTranslationRaw(0, currTrans, 0);
-    } else {
-      var currScale = 0.8;
-      matrix = Matrix4.diagonal3Values(1, currScale, 1)
-        ..setTranslationRaw(0, _height * (1 - _scaleFactor) / 2, 1);
-    }
-
-    return Transform(
-        transform: matrix,
-        child: Stack(
-          children: [
-            Container(
-              height: Dimensions.pageViewContainer,
-              margin: EdgeInsets.only(left: 5, right: 5),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc)),
-            )
-          ],
-        ));
   }
 }

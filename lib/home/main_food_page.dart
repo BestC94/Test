@@ -45,7 +45,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       // textStyle: TextStyle(color: Colors.white),
                       backgroundColor: Colors.blue,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24.0),
+                        borderRadius: BorderRadius.circular(30.0),
                       ),
                     ),
                     onPressed: () => {
@@ -56,7 +56,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       )
                     },
                     icon: Icon(
-                      Icons.navigate_next,
+                      Icons.add_shopping_cart,
                       color: Colors.white,
                     ),
                     label: Text(
@@ -76,8 +76,4 @@ class _MainFoodPageState extends State<MainFoodPage> {
       ),
     );
   }
-}
-
-class FirebaseDatabase {
-  static var instance;
 }
