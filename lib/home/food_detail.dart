@@ -121,21 +121,21 @@ class _FoodDetailState extends State<FoodDetail> {
                   onPressed: () => showDialog<String>(
                     context: context,
                     builder: (BuildContext context) => AlertDialog(
-                      title: const Text('AlertDialog Title'),
-                      content: const Text('AlertDialog description'),
+                      title: const Text('ทั้งหมด ราคา'),
+                      content: const Text('100'),
                       actions: <Widget>[
                         TextButton(
                           onPressed: () => Navigator.pop(context, 'Cancel'),
-                          child: const Text('Cancel'),
+                          child: const Text('ยกเลิก'),
                         ),
                         TextButton(
                           onPressed: () => Navigator.pop(context, 'OK'),
-                          child: const Text('OK'),
+                          child: const Text('ชำระเงิน'),
                         ),
                       ],
                     ),
                   ),
-                  child: const Text('Show Dialog'),
+                  child: const Text('ชำระเงิน'),
                 )
                 // TextButton.icon(
                 //   style: TextButton.styleFrom(

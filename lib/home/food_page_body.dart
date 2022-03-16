@@ -18,7 +18,7 @@ class FoodPageBody extends StatefulWidget {
 class _FoodPageBody extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.85);
   var foodList = [
-    {"id": 1, "name": "ผัดพริกเเกง (Fried Chili.)", "price": 50},
+    {"id": 1, "name": "ผัดพริกเเกง (Fried Chili.)", "price": 40},
     {"id": 2, "name": "ต้มยำกุ้ง ( Tom Yum Kung.)", "price": 60},
     {"id": 3, "name": "เเกงข่าไก่,ต้มข่าไก่ (Tom Kha Gai)", "price": 45},
     {"id": 4, "name": "ไก่ย่าง", "price": 50},
