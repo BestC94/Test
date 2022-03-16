@@ -122,7 +122,7 @@ class _FoodDetailState extends State<FoodDetail> {
                     context: context,
                     builder: (BuildContext context) => AlertDialog(
                       title: const Text('ทั้งหมด ราคา'),
-                      content: const Text('100'),
+                      content: Text(total.toString()),
                       actions: <Widget>[
                         TextButton(
                           onPressed: () => Navigator.pop(context, 'Cancel'),
