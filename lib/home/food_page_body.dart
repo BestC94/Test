@@ -21,10 +21,10 @@ class _FoodPageBody extends State<FoodPageBody> {
     {"id": 1, "name": "ผัดพริกเเกง (Fried Chili.)", "price": 40},
     {"id": 2, "name": "ต้มยำกุ้ง ( Tom Yum Kung.)", "price": 60},
     {"id": 3, "name": "เเกงข่าไก่,ต้มข่าไก่ (Tom Kha Gai)", "price": 45},
-    {"id": 4, "name": "ไก่ย่าง", "price": 50},
-    {"id": 5, "name": "ผัดไทย", "price": 45},
-    {"id": 6, "name": "เเพนงไก่", "price": 35},
-    {"id": 7, "name": "เเกงไก่", "price": 40},
+    {"id": 4, "name": "ไก่ย่าง (grilled chicken)", "price": 50},
+    {"id": 5, "name": "ผัดไทย (Pad Thai)", "price": 45},
+    {"id": 6, "name": "เเพนงไก่ (Panang Chicken)", "price": 35},
+    {"id": 7, "name": "เเกงไก่ (Chicken Curry)", "price": 40},
   ];
 
   late int price;
