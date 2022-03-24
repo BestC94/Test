@@ -25,6 +25,7 @@ class _FoodPageBody extends State<FoodPageBody> {
     {"id": 5, "name": "ผัดไทย (Pad Thai)", "price": 45},
     {"id": 6, "name": "เเพนงไก่ (Panang Chicken)", "price": 35},
     {"id": 7, "name": "เเกงไก่ (Chicken Curry)", "price": 40},
+    {"id": 8, "name": "A", "price": 40},
   ];
 
   late int price;
@@ -112,139 +113,160 @@ class _FoodPageBody extends State<FoodPageBody> {
             child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Column(children: <Widget>[
-                  Card(
-                      child: ListTile(
-                    title: Text(foodList[0]['name'].toString()),
-                    subtitle: Text(foodList[0]['price'].toString() + " บาท"),
-                    // ignore: prefer_const_constructors
-                    trailing: Icon(
-                      Icons.add_circle,
-                      color: Colors.blue,
-                    ),
-                    onTap: () {
-                      setState(() {
-                        // ignore: unnecessary_this
-                        this.name = foodList[0]['name'].toString();
-                        // ignore: unnecessary_this
-                        this.price = int.parse(foodList[0]['price'].toString());
-                        addNote();
-                      });
-                    },
-                  )),
-                  Card(
-                      child: ListTile(
-                    title: Text(foodList[1]['name'].toString()),
-                    subtitle: Text(foodList[1]['price'].toString() + " บาท"),
-                    // ignore: prefer_const_constructors
-                    trailing: Icon(
-                      Icons.add_circle,
-                      color: Colors.blue,
-                    ),
-                    onTap: () {
-                      setState(() {
-                        // ignore: unnecessary_this
-                        this.name = foodList[1]['name'].toString();
-                        // ignore: unnecessary_this
-                        this.price = int.parse(foodList[1]['price'].toString());
-                        addNote();
-                      });
-                    },
-                  )),
-                  Card(
-                      child: ListTile(
-                    title: Text(foodList[2]['name'].toString()),
-                    subtitle: Text(foodList[2]['price'].toString() + " บาท"),
-                    // ignore: prefer_const_constructors
-                    trailing: Icon(
-                      Icons.add_circle,
-                      color: Colors.blue,
-                    ),
-                    onTap: () {
-                      setState(() {
-                        // ignore: unnecessary_this
-                        this.name = foodList[2]['name'].toString();
-                        // ignore: unnecessary_this
-                        this.price = int.parse(foodList[2]['price'].toString());
-                        addNote();
-                      });
-                    },
-                  )),
-                  Card(
-                      child: ListTile(
-                    title: Text(foodList[3]['name'].toString()),
-                    subtitle: Text(foodList[3]['price'].toString() + " บาท"),
-                    // ignore: prefer_const_constructors
-                    trailing: Icon(
-                      Icons.add_circle,
-                      color: Colors.blue,
-                    ),
-                    onTap: () {
-                      setState(() {
-                        // ignore: unnecessary_this
-                        this.name = foodList[3]['name'].toString();
-                        // ignore: unnecessary_this
-                        this.price = int.parse(foodList[3]['price'].toString());
-                        addNote();
-                      });
-                    },
-                  )),
-                  Card(
-                      child: ListTile(
-                    title: Text(foodList[4]['name'].toString()),
-                    subtitle: Text(foodList[4]['price'].toString() + " บาท"),
-                    // ignore: prefer_const_constructors
-                    trailing: Icon(
-                      Icons.add_circle,
-                      color: Colors.blue,
-                    ),
-                    onTap: () {
-                      setState(() {
-                        // ignore: unnecessary_this
-                        this.name = foodList[4]['name'].toString();
-                        // ignore: unnecessary_this
-                        this.price = int.parse(foodList[4]['price'].toString());
-                        addNote();
-                      });
-                    },
-                  )),
-                  Card(
-                      child: ListTile(
-                    title: Text(foodList[5]['name'].toString()),
-                    subtitle: Text(foodList[5]['price'].toString() + " บาท"),
-                    // ignore: prefer_const_constructors
-                    trailing: Icon(
-                      Icons.add_circle,
-                      color: Colors.blue,
-                    ),
-                    onTap: () {
-                      setState(() {
-                        // ignore: unnecessary_this
-                        this.name = foodList[5]['name'].toString();
-                        // ignore: unnecessary_this
-                        this.price = int.parse(foodList[5]['price'].toString());
-                        addNote();
-                      });
-                    },
-                  )),
-                  Card(
-                      child: ListTile(
-                    title: Text(foodList[6]['name'].toString()),
-                    subtitle: Text(foodList[6]['price'].toString() + " บาท"),
-                    // ignore: prefer_const_constructors
-                    trailing: Icon(
-                      Icons.add_circle,
-                      color: Colors.blue,
-                    ),
-                    onTap: () {
-                      setState(() {
-                        // ignore: unnecessary_this
-                        this.name = foodList[6]['name'].toString();
-                        // ignore: unnecessary_this
-                        this.price = int.parse(foodList[6]['price'].toString());
-                        addNote();
-                      });
-                    },
-                  )),
+                  for (var i = 0; i < 8; i++)
+                    Card(
+                        child: ListTile(
+                      title: Text(foodList[i]['name'].toString()),
+                      subtitle: Text(foodList[i]['price'].toString() + " บาท"),
+                      // ignore: prefer_const_constructors
+                      trailing: Icon(
+                        Icons.add_circle,
+                        color: Colors.blue,
+                      ),
+                      onTap: () {
+                        setState(() {
+                          // ignore: unnecessary_this
+                          this.name = foodList[i]['name'].toString();
+                          // ignore: unnecessary_this
+                          this.price =
+                              int.parse(foodList[i]['price'].toString());
+                          addNote();
+                        });
+                      },
+                    )),
+                  // Card(
+                  //     child: ListTile(
+                  //   title: Text(foodList[1]['name'].toString()),
+                  //   subtitle: Text(foodList[1]['price'].toString() + " บาท"),
+                  //   // ignore: prefer_const_constructors
+                  //   trailing: Icon(
+                  //     Icons.add_circle,
+                  //     color: Colors.blue,
+                  //   ),
+                  //   onTap: () {
+                  //     setState(() {
+                  //       // ignore: unnecessary_this
+                  //       this.name = foodList[1]['name'].toString();
+                  //       // ignore: unnecessary_this
+                  //       this.price = int.parse(foodList[1]['price'].toString());
+                  //       addNote();
+                  //     });
+                  //   },
+                  // )),
+                  // Card(
+                  //     child: ListTile(
+                  //   title: Text(foodList[2]['name'].toString()),
+                  //   subtitle: Text(foodList[2]['price'].toString() + " บาท"),
+                  //   // ignore: prefer_const_constructors
+                  //   trailing: Icon(
+                  //     Icons.add_circle,
+                  //     color: Colors.blue,
+                  //   ),
+                  //   onTap: () {
+                  //     setState(() {
+                  //       // ignore: unnecessary_this
+                  //       this.name = foodList[2]['name'].toString();
+                  //       // ignore: unnecessary_this
+                  //       this.price = int.parse(foodList[2]['price'].toString());
+                  //       addNote();
+                  //     });
+                  //   },
+                  // )),
+                  // Card(
+                  //     child: ListTile(
+                  //   title: Text(foodList[3]['name'].toString()),
+                  //   subtitle: Text(foodList[3]['price'].toString() + " บาท"),
+                  //   // ignore: prefer_const_constructors
+                  //   trailing: Icon(
+                  //     Icons.add_circle,
+                  //     color: Colors.blue,
+                  //   ),
+                  //   onTap: () {
+                  //     setState(() {
+                  //       // ignore: unnecessary_this
+                  //       this.name = foodList[3]['name'].toString();
+                  //       // ignore: unnecessary_this
+                  //       this.price = int.parse(foodList[3]['price'].toString());
+                  //       addNote();
+                  //     });
+                  //   },
+                  // )),
+                  // Card(
+                  //     child: ListTile(
+                  //   title: Text(foodList[4]['name'].toString()),
+                  //   subtitle: Text(foodList[4]['price'].toString() + " บาท"),
+                  //   // ignore: prefer_const_constructors
+                  //   trailing: Icon(
+                  //     Icons.add_circle,
+                  //     color: Colors.blue,
+                  //   ),
+                  //   onTap: () {
+                  //     setState(() {
+                  //       // ignore: unnecessary_this
+                  //       this.name = foodList[4]['name'].toString();
+                  //       // ignore: unnecessary_this
+                  //       this.price = int.parse(foodList[4]['price'].toString());
+                  //       addNote();
+                  //     });
+                  //   },
+                  // )),
+                  // Card(
+                  //     child: ListTile(
+                  //   title: Text(foodList[5]['name'].toString()),
+                  //   subtitle: Text(foodList[5]['price'].toString() + " บาท"),
+                  //   // ignore: prefer_const_constructors
+                  //   trailing: Icon(
+                  //     Icons.add_circle,
+                  //     color: Colors.blue,
+                  //   ),
+                  //   onTap: () {
+                  //     setState(() {
+                  //       // ignore: unnecessary_this
+                  //       this.name = foodList[5]['name'].toString();
+                  //       // ignore: unnecessary_this
+                  //       this.price = int.parse(foodList[5]['price'].toString());
+                  //       addNote();
+                  //     });
+                  //   },
+                  // )),
+                  // Card(
+                  //     child: ListTile(
+                  //   title: Text(foodList[6]['name'].toString()),
+                  //   subtitle: Text(foodList[6]['price'].toString() + " บาท"),
+                  //   // ignore: prefer_const_constructors
+                  //   trailing: Icon(
+                  //     Icons.add_circle,
+                  //     color: Colors.blue,
+                  //   ),
+                  //   onTap: () {
+                  //     setState(() {
+                  //       // ignore: unnecessary_this
+                  //       this.name = foodList[6]['name'].toString();
+                  //       // ignore: unnecessary_this
+                  //       this.price = int.parse(foodList[6]['price'].toString());
+                  //       addNote();
+                  //     });
+                  //   },
+                  // )),
+                  // Card(
+                  //     child: ListTile(
+                  //   title: Text(foodList[7]['name'].toString()),
+                  //   subtitle: Text(foodList[7]['price'].toString() + " บาท"),
+                  //   // ignore: prefer_const_constructors
+                  //   trailing: Icon(
+                  //     Icons.add_circle,
+                  //     color: Colors.blue,
+                  //   ),
+                  //   onTap: () {
+                  //     setState(() {
+                  //       // ignore: unnecessary_this
+                  //       this.name = foodList[7]['name'].toString();
+                  //       // ignore: unnecessary_this
+                  //       this.price = int.parse(foodList[7]['price'].toString());
+                  //       addNote();
+                  //     });
+                  //   },
+                  // )),
                 ]))) // ))
       ],
     );
