@@ -31,14 +31,14 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       // children: [Text("Bangladesh"), Text("City")],
                       children: [
                         BigText(text: "ThaiFood", color: Colors.green),
-                        Row(
-                          children: [
-                            SmallText(
-                              text: "Rice.",
-                              color: Colors.black54,
-                            ),
-                          ],
-                        )
+                        // Row(
+                        //   children: [
+                        //     SmallText(
+                        //       text: "Rice.",
+                        //       color: Colors.black54,
+                        //     ),
+                        //   ],
+                        // )
                       ]),
                   TextButton.icon(
                     style: TextButton.styleFrom(

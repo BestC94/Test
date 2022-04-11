@@ -25,8 +25,6 @@ class _FoodPageBody extends State<FoodPageBody> {
     {"id": 5, "name": "ผัดไทย (Pad Thai)", "price": 45},
     {"id": 6, "name": "เเพนงไก่ (Panang Chicken)", "price": 35},
     {"id": 7, "name": "เเกงไก่ (Chicken Curry)", "price": 40},
-    {"id": 8, "name": "ข้าวมันไก่", "price": 40},
-    //{"id": 8, "name": "A", "price": 40},
   ];
 
   late int price;
@@ -114,7 +112,7 @@ class _FoodPageBody extends State<FoodPageBody> {
             child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Column(children: <Widget>[
-                  for (var i = 0; i < 8; i++)
+                  for (var i = 0; i < 7; i++)
                     Card(
                         child: ListTile(
                       title: Text(foodList[i]['name'].toString()),
